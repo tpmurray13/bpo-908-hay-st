@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>908 Hay St &mdash; Broker Price Opinion</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root, [data-theme="light"] {
+      --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+      --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+      --text-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+      --text-lg: clamp(1.125rem, 1rem + 0.75vw, 1.5rem);
+      --text-xl: clamp(1.5rem, 1.2rem + 1.25vw, 2.25rem);
+      --text-2xl: clamp(2rem, 1.2rem + 2.5vw, 3.5rem);
+      --space-1: .25rem; --space-2: .5rem; --space-3: .75rem; --space-4: 1rem; --space-5: 1.25rem; --space-6: 1.5rem; --space-8: 2rem; --space-10: 2.5rem; --space-12: 3rem; --space-16: 4rem;
+      --color-bg:#ffffff; --color-surface:#ffffff; --color-surface-2:#eaf2ed; --color-border:#e1ded6; --color-text:#333333; --color-text-muted:#6b6f6c;
+      --color-primary:#17613c; --color-primary-2:#d9ebe1; --color-band:#a3701f; --color-band-soft:#f2e6d3;
+      --color-alert:#a3341f; --color-alert-soft:#f2dcd3;
+      --radius-md:.5rem; --radius-lg:.9rem; --radius-xl:1.2rem;
+      --shadow-sm:0 1px 2px rgba(0,0,0,.06); --shadow-md:0 8px 24px rgba(0,0,0,.08);
+      --font-display:'Outfit', system-ui, sans-serif; --font-body:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    }
+    *{box-sizing:border-box;margin:0;padding:0} html{scroll-behavior:smooth} body{font-family:var(--font-body);font-size:var(--text-base);color:var(--color-text);background:var(--color-bg);line-height:1.6}
+    a{color:var(--color-primary)} .container{max-width:1100px;margin:0 auto;padding:0 var(--space-4)}
+    .topbar{position:sticky;top:0;background:rgba(255,255,255,.96);backdrop-filter:blur(10px);border-bottom:2px solid var(--color-primary);z-index:20}
+    .topbar-inner{display:flex;justify-content:space-between;align-items:center;padding:var(--space-3) 0;flex-wrap:wrap;gap:var(--space-2)}
+    .logo{display:flex;gap:var(--space-3);align-items:center;font-weight:600}
+    .logo img{height:42px;width:auto;display:block}
+    .hero{padding:var(--space-16) 0 var(--space-12)}
+    .eyebrow{font-size:var(--text-sm);letter-spacing:.12em;text-transform:uppercase;color:var(--color-text-muted);margin-bottom:var(--space-3)}
+    h1,h2,h3,h4{font-family:var(--font-display);line-height:1.12;font-weight:700;color:var(--color-primary)}
+    h1{font-size:var(--text-2xl);max-width:36ch;margin-bottom:var(--space-4)} h2{font-size:var(--text-xl);margin-bottom:var(--space-5)} h3{font-size:var(--text-lg);margin-bottom:var(--space-3)} h4{font-size:var(--text-base);margin-bottom:var(--space-2)}
+    .lede{max-width:76ch;color:var(--color-text-muted)}
+    .grid{display:grid;grid-template-columns:1.3fr .9fr;gap:var(--space-8);align-items:start}
+    .card{background:var(--color-surface);border:1px solid rgba(31,35,32,.12);border-radius:var(--radius-xl);padding:var(--space-6);box-shadow:var(--shadow-sm)}
+    .stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-4);margin-top:var(--space-8)}
+    .stat{background:var(--color-surface-2);border-radius:var(--radius-lg);padding:var(--space-4)} .stat-label{font-size:var(--text-xs);text-transform:uppercase;letter-spacing:.08em;color:var(--color-text-muted)} .stat-value{font-size:var(--text-lg);font-weight:700;margin-top:.2rem;color:var(--color-primary)}
+    .stat-alert .stat-value{color:var(--color-alert)}
+    section{padding:var(--space-10) 0}
+    section.alt{background:var(--color-surface-2)}
+    .table{width:100%;border-collapse:collapse;font-size:var(--text-sm)} .table th,.table td{padding:.85rem .6rem;border-bottom:1px solid rgba(31,35,32,.1);text-align:left;vertical-align:top} .table th{color:var(--color-text-muted);font-weight:600;white-space:nowrap}
+    .table-wrap{overflow-x:auto}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-8)}
+    .prop-card + .prop-card{margin-top:var(--space-6)}
+    .spec-list{display:flex;flex-direction:column;gap:var(--space-4);margin-top:var(--space-4)}
+    .spec-row{padding-bottom:var(--space-3);border-bottom:1px solid rgba(31,35,32,.1)}
+    .spec-row:last-child{border-bottom:none;padding-bottom:0}
+    .spec-label{font-size:var(--text-xs);color:var(--color-text-muted);font-weight:600;text-transform:uppercase;letter-spacing:.03em;margin-bottom:.25rem}
+    .spec-value{font-size:var(--text-sm);line-height:1.55}
+    .three-col{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--space-4)}
+    .pill{display:inline-block;background:var(--color-primary-2);color:var(--color-primary);padding:.35rem .7rem;border-radius:999px;font-size:var(--text-xs);font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+    .pill-band{display:inline-block;background:var(--color-band-soft);color:var(--color-band);padding:.35rem .7rem;border-radius:999px;font-size:var(--text-xs);font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+    .pill-alert{display:inline-block;background:var(--color-alert-soft);color:var(--color-alert);padding:.35rem .7rem;border-radius:999px;font-size:var(--text-xs);font-weight:700;letter-spacing:.04em;text-transform:uppercase}
+    .pill-outline{display:inline-block;border:1px solid rgba(31,35,32,.18);color:var(--color-text-muted);padding:.3rem .65rem;border-radius:999px;font-size:var(--text-xs);font-weight:600;margin:.15rem .25rem .15rem 0}
+    .note{font-size:var(--text-sm);color:var(--color-text-muted);margin-top:var(--space-4)}
+    footer{padding:var(--space-10) 0;background:var(--color-primary);color:#ffffff;font-size:var(--text-sm)}
+    .footer-inner{display:flex;align-items:center;gap:var(--space-6);flex-wrap:wrap}
+    .footer-logo{height:36px;width:auto;filter:brightness(0) invert(1)}
+    .disclaimer{background:var(--color-surface-2);border-radius:var(--radius-lg);padding:var(--space-5);font-size:var(--text-sm);color:var(--color-text-muted);margin-top:var(--space-6)}
+    .prop-divider{display:flex;align-items:center;gap:var(--space-4);margin:var(--space-4) 0 var(--space-6)}
+    .prop-divider .badge{background:var(--color-primary);color:#fff;font-family:var(--font-display);font-weight:700;font-size:var(--text-xs);letter-spacing:.06em;text-transform:uppercase;padding:.4rem .85rem;border-radius:999px;white-space:nowrap}
+    .prop-divider .badge.two{background:var(--color-band)}
+    .prop-divider hr{flex:1;border:none;border-top:1px solid rgba(31,35,32,.15)}
+    .terms-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--space-6)}
+    .bio-grid{display:grid;grid-template-columns:.9fr 1.4fr;gap:var(--space-8);align-items:start}
+    .reuse-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--space-5);margin-top:var(--space-5)}
+    .reuse-card{background:var(--color-surface);border:1px solid rgba(31,35,32,.12);border-radius:var(--radius-lg);padding:var(--space-5)}
+    .reuse-card h4{margin-bottom:var(--space-2)}
+    .reuse-card ul{margin:0 0 0 1.1rem;padding:0;font-size:var(--text-sm)}
+    .reuse-card li{margin-bottom:.35rem}
+    @media (max-width: 820px){.grid,.two-col,.terms-grid,.three-col,.bio-grid,.reuse-grid{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}}
+    .btn-print{display:inline-flex;align-items:center;gap:.5rem;background:var(--color-primary);color:#ffffff;border:none;padding:.55rem 1.1rem;border-radius:999px;font-family:var(--font-body);font-weight:600;font-size:var(--text-xs);letter-spacing:.02em;cursor:pointer;box-shadow:var(--shadow-sm);transition:background .15s ease}
+    .btn-print:hover{background:#0f4a2d}
+    .btn-print svg{width:15px;height:15px;fill:currentColor;flex:none}
+    .topbar-actions{display:flex;align-items:center;gap:.75rem;flex-wrap:wrap}
+    @media screen and (max-width: 820px){.adj-table{min-width:760px}.comps-table{min-width:680px}.adj-table td:nth-child(4){min-width:380px}}
+    @media print {
+      .no-print{display:none !important}
+      *{-webkit-print-color-adjust:exact;print-color-adjust:exact;color-adjust:exact}
+      html,body{font-size:10.5pt;line-height:1.45}
+      .topbar{position:static;backdrop-filter:none;box-shadow:none;border-bottom:2px solid var(--color-primary)}
+      .hero{padding:14pt 0 10pt}
+      section{padding:12pt 0}
+      .grid,.two-col,.terms-grid,.three-col,.bio-grid,.reuse-grid{grid-template-columns:1fr;gap:10pt}
+      .stats{grid-template-columns:repeat(3,minmax(0,1fr));gap:8pt}
+      .spec-list{gap:6pt;margin-top:6pt}
+      .spec-row{padding-bottom:5pt}
+      .spec-label{font-size:7.5pt}
+      .spec-value{font-size:9pt;line-height:1.4}
+      h1{font-size:19pt;margin-bottom:8pt}
+      h2{font-size:14.5pt;margin-bottom:8pt}
+      h3{font-size:12pt;margin-bottom:6pt}
+      h4{font-size:10.5pt;margin-bottom:4pt}
+      .card{box-shadow:none;border:1px solid #d7d3c8;padding:10pt}
+      .stat{page-break-inside:avoid}
+      .reuse-card{page-break-inside:avoid;border:1px solid #d7d3c8}
+      table{font-size:9pt}
+      tr{page-break-inside:avoid}
+      .comps-table{table-layout:fixed;width:100%}
+      .comps-table th,.comps-table td{white-space:normal;word-wrap:break-word;overflow-wrap:break-word;font-size:6.4pt;line-height:1.32;padding:.28rem .18rem}
+      .adj-table{table-layout:fixed;width:100%}
+      .adj-table th,.adj-table td{white-space:normal;word-wrap:break-word;overflow-wrap:break-word;font-size:7pt;line-height:1.32;padding:.28rem .18rem}
+      .adj-table th:nth-child(1),.adj-table td:nth-child(1){width:15%}
+      .adj-table th:nth-child(2),.adj-table td:nth-child(2){width:9%}
+      .adj-table th:nth-child(3),.adj-table td:nth-child(3){width:8%}
+      .adj-table th:nth-child(4),.adj-table td:nth-child(4){width:58%}
+      .adj-table th:nth-child(5),.adj-table td:nth-child(5){width:10%}
+      .parcel-table{table-layout:fixed;width:100%}
+      .parcel-table th,.parcel-table td{white-space:normal;word-wrap:break-word;overflow-wrap:break-word;font-size:7.4pt;line-height:1.32;padding:.3rem .2rem}
+      .table-wrap{overflow-x:visible}
+      h2,h3,h4{page-break-after:avoid}
+      .prop-divider{page-break-after:avoid}
+      footer{background:var(--color-primary) !important;color:#ffffff !important;padding:10pt 0}
+      a{color:var(--color-primary) !important;text-decoration:none}
+      footer a{color:#ffffff !important;text-decoration:underline}
+      .sale-comps th:nth-child(1),.sale-comps td:nth-child(1){width:22%}
+      .sale-comps th:nth-child(2),.sale-comps td:nth-child(2){width:9%}
+      .sale-comps th:nth-child(3),.sale-comps td:nth-child(3){width:11%}
+      .sale-comps th:nth-child(4),.sale-comps td:nth-child(4){width:8%}
+      .sale-comps th:nth-child(5),.sale-comps td:nth-child(5){width:9%}
+      .sale-comps th:nth-child(6),.sale-comps td:nth-child(6){width:8%}
+      .sale-comps th:nth-child(7),.sale-comps td:nth-child(7){width:14%}
+      .sale-comps th:nth-child(8),.sale-comps td:nth-child(8){width:8%}
+      .sale-comps th:nth-child(9),.sale-comps td:nth-child(9){width:11%}
+      .land-comps th:nth-child(1),.land-comps td:nth-child(1){width:28%}
+      .land-comps th:nth-child(2),.land-comps td:nth-child(2){width:10%}
+      .land-comps th:nth-child(3),.land-comps td:nth-child(3){width:12%}
+      .land-comps th:nth-child(4),.land-comps td:nth-child(4){width:9%}
+      .land-comps th:nth-child(5),.land-comps td:nth-child(5){width:10%}
+      .land-comps th:nth-child(6),.land-comps td:nth-child(6){width:31%}
+      @page{margin:0.55in}
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div class="logo"><img src="assets/gm-logo.svg" alt="Grant-Murray Real Estate" /></div>
+      <div class="topbar-actions">
+        <div class="pill">Broker Price Opinion</div>
+        <button class="btn-print no-print" type="button" onclick="window.print()">
+          <svg viewBox="0 0 24 24"><path d="M6 9V2h12v7h2a2 2 0 0 1 2 2v7h-4v4H6v-4H2v-7a2 2 0 0 1 2-2h2zm2-5v5h8V4H8zm8 14H8v3h8v-3zm2-2h2v-5H4v5h2v-2h12v2z"/></svg>
+          Print / Save as PDF
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="eyebrow">Broker Price Opinion &middot; Office / Mixed-Use Building &middot; 908 Hay St, Fayetteville, NC 28305</div>
+        <h1>908 Hay Street &mdash; Haymount &mdash; Broker Price Opinion</h1>
+        <p class="lede">A 2005-built, 1.5-story building on a <strong>0.27-acre</strong> lot on Hay Street in Haymount, zoned <strong>OI (Office &amp; Institutional)</strong>. It has <strong>2,140 SF</strong> of heated space above grade plus a <strong>1,280 SF finished lower level</strong>. The block sits between two major cultural projects: the new <strong>$87 million NC History Center on the Civil War, Emancipation &amp; Reconstruction</strong>, about 0.1 mile away across Hay St, and the <strong>Cape Fear Regional Theatre</strong>, about a quarter mile west, which is finishing a $25 million expansion with a rooftop restaurant.</p>
+        <div class="stats">
+          <div class="stat"><div class="stat-label">Heated area (above grade)</div><div class="stat-value">2,140 SF</div></div>
+          <div class="stat"><div class="stat-label">Finished lower level</div><div class="stat-value">1,280 SF</div></div>
+          <div class="stat"><div class="stat-label">Lot / zoning</div><div class="stat-value">0.27 ac / OI</div></div>
+          <div class="stat stat-alert"><div class="stat-label">Opinion of value</div><div class="stat-value">$490,000</div></div>
+          <div class="stat"><div class="stat-label">Recommended list price</div><div class="stat-value">$519,000</div></div>
+          <div class="stat"><div class="stat-label">Indicated range</div><div class="stat-value">$450K&ndash;$535K</div></div>
+        </div>
+        <p class="note">The value is about $229 per SF of above-grade space, or $143 per SF across all 3,420 SF of finished area. OI zoning allows a residence on an upper floor over a ground-floor office by right; see the zoning section. This is a broker's opinion of value for marketing purposes, not a certified USPAP appraisal.</p>
+      </div>
+    </section>
+
+    <section class="alt">
+      <div class="container">
+        <h2>Subject property summary</h2>
+        <div class="card">
+          <div class="spec-list">
+            <div class="spec-row"><div class="spec-label">Location</div><div class="spec-value">908 Hay St, Fayetteville, NC 28305, in the Haymount area between downtown and Haymount Hill. It is in the 900 block of Hay St, across from the north end of Arsenal Park and about a quarter mile east of the Cape Fear Regional Theatre (1209 Hay St).</div></div>
+            <div class="spec-row"><div class="spec-label">Parcel</div><div class="spec-value">REID 0437152489000 / PIN 0437-15-2489. Legal description "Lot 2 &amp; part lot." 0.27 ac (about 11,760 SF). County land class: commercial.</div></div>
+            <div class="spec-row"><div class="spec-label">Owner of record</div><div class="spec-value">Gardeavant Properties LLC, 210 Woodside Ave, Fayetteville, NC 28301. The property last sold 9/2019 for $245,000. It moved to the current LLC by a $0 deed in 9/2022 (Book 11571, Page 275). Public directories list The Hatley Law Firm at this address.</div></div>
+            <div class="spec-row"><div class="spec-label">Building</div><div class="spec-value">Built 2005, 1.5 stories, vinyl siding, gable roof with composition shingles, central heat and air. The county lists 2,140 SF heated above grade (1,568 SF main floor + 572 SF upper half-story). It also records a <strong>1,280 SF finished basement</strong>, a 504 SF unfinished bonus room, a 264 SF finished utility room, a 600 SF carport, a 240 SF screened porch, a 96 SF open porch and a 3,400 SF concrete patio. The county carries it on a residential card with 6 bedrooms and 5 full baths.</div></div>
+            <div class="spec-row"><div class="spec-label">County value (2026)</div><div class="spec-value">$376,892 in total: land $156,400, building $211,365, other improvements $9,127. The county applies 19% physical and 30% economic depreciation to the building. Not relied on for value.</div></div>
+            <div class="spec-row"><div class="spec-label">Data note</div><div class="spec-value">The county card lists a slab foundation but also a finished basement under the main floor. The lower level's ceiling height, grade access and permitted use need to be confirmed on site. This matters to value; see Limitations.</div></div>
+          </div>
+        </div>
+        <p class="note">Sources: <a href="https://taxpwa.co.cumberland.nc.us/camapwa/PropertySummary.aspx?PARCELPK=79010" target="_blank" rel="noopener">Cumberland County property record</a>, <a href="https://taxpwa.co.cumberland.nc.us/camapwa/BuildingDetails.aspx?PARCELPK=79010&amp;BldgCardNum=1&amp;SectionNum=1" target="_blank" rel="noopener">county building card</a>, <a href="https://gis.co.cumberland.nc.us/server/rest/services/Tax/Parcels/MapServer/0" target="_blank" rel="noopener">Cumberland County GIS parcels</a>, <a href="https://www.martindale.com/social-security-lawyers/fayetteville/north-carolina/" target="_blank" rel="noopener">Martindale directory</a>.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2>Zoning &mdash; residence plus commercial</h2>
+        <p class="lede" style="margin-bottom:var(--space-6)"><strong>Yes.</strong> The City of Fayetteville's use table permits an upper-story dwelling, a live/work unit, multi-family and professional offices in OI <strong>by right</strong>, with no special use permit. How the floors are arranged decides which category applies.</p>
+        <div class="card table-wrap">
+          <table class="table parcel-table">
+            <tr><th>Configuration</th><th>UDO category</th><th>Status in OI</th></tr>
+            <tr><td>Office on the main (street-level) floor, apartment in the upper half-story</td><td>Dwelling, upper story: a dwelling on the second floor or higher, with nonresidential use on the ground or street level</td><td><strong>Permitted by right</strong></td></tr>
+            <tr><td>Owner lives on one floor and runs a business on another</td><td>Dwelling/unit, live/work: a dwelling with integrated work space used mainly by a resident</td><td><strong>Permitted by right.</strong> The work area must meet the nonresidential building code; no drive-throughs; mixed-use parking and landscaping standards apply. OI has no minimum residential share.</td></tr>
+            <tr><td>Apartment on the main floor, unrelated office in the lower level</td><td>Not an "upper story" dwelling unless the lower level counts as street level</td><td><strong>Likely workable, but get a written zoning determination</strong></td></tr>
+            <tr><td>Whole building used as one residence</td><td>Dwelling, single-family detached</td><td>Permitted today, but a pending 2026 amendment would remove it; see note</td></tr>
+          </table>
+        </div>
+        <p class="note">OI dimensional standards allow up to 24 dwelling units per acre for mixed use, with a 10,000 SF minimum lot. The 0.27-acre lot (about 11,760 SF) meets the minimum, and density is not a constraint. Combining a residence and an office in one building is a change of occupancy. Expect building permits, fire separation between the residential and business areas, and accessibility work for the office portion. In 2026 the city proposed UDO text amendment File 26-0379, which would remove single-family detached dwellings from OI; it went to a City Council public hearing on 6/22/2026. Its outcome was not confirmed, and it does not affect upper-story or live/work units. Hay St is part of the Haymount historic district. Whether this parcel is inside the city's local Historic/Landmark Overlay was not confirmed. If it is, exterior changes need a Certificate of Appropriateness. Sources: <a href="https://online.encodeplus.com/regs/fayetteville-nc/doc-viewer.aspx?secid=11250" target="_blank" rel="noopener">Fayetteville UDO use table 30-4.A.2</a>, <a href="https://online.encodeplus.com/regs/fayetteville-nc/doc-viewer.aspx?secid=10431" target="_blank" rel="noopener">UDO 30-4.C.2 residential use standards</a>, <a href="https://online.encodeplus.com/regs/fayetteville-nc/doc-viewer.aspx?secid=10827" target="_blank" rel="noopener">UDO definition: upper-story dwelling</a>, <a href="https://www.zoneomics.com/code/fayetteville-NC/chapter_3" target="_blank" rel="noopener">OI district standards (Zoneomics)</a>, <a href="https://cityoffayetteville.legistar.com/LegislationDetail.aspx?ID=8073945&amp;GUID=71323AF7-21CD-406B-B1F2-EC6766494673&amp;Options=&amp;Search=&amp;FullText=1" target="_blank" rel="noopener">City of Fayetteville File 26-0379</a>, <a href="https://www.fayettevillenc.gov/City-Departments/Development-Services/Planning-Zoning/Historic-Preservation" target="_blank" rel="noopener">City historic preservation</a>.</p>
+      </div>
+    </section>
+
+    <section class="alt">
+      <div class="container">
+        <h2>Location catalysts</h2>
+        <div class="two-col">
+          <div class="card">
+            <h3>NC History Center on the Civil War</h3>
+            <p style="font-size:var(--text-sm)">The <strong>$87 million</strong>, 60,000 SF state history center is under construction at the north end of Arsenal Park, about 0.1 mile from the subject. It will include 16,000 SF of exhibits, classrooms, an auditorium, a library and a caf&eacute;, and is scheduled to open in <strong>spring 2028</strong>. As of August 2026 the building was about 90% closed in, and a new parking lot is planned on Myrover St (<a href="https://www.cityviewnc.com/stories/fayetteville-civil-war-history-center-celebrates-topping-off-milestone/" target="_blank" rel="noopener">CityView</a>, <a href="https://nccivilwarcenter.org/august-2026-construction-update/" target="_blank" rel="noopener">NC History Center</a>).</p>
+          </div>
+          <div class="card">
+            <h3>Cape Fear Regional Theatre</h3>
+            <p style="font-size:var(--text-sm)">CFRT's <strong>$25 million</strong> "Act 2" expansion at 1209 Hay St, about a quarter mile west, doubles the building and adds classrooms and a rooftop bar and restaurant (<a href="https://bizfayetteville.com/printstory/5909" target="_blank" rel="noopener">BizFayetteville</a>, <a href="https://www.cityviewnc.com/stories/fayetteville-oks-early-payment-of-500000-to-cape-fear-regional-theatre/" target="_blank" rel="noopener">CityView</a>). The 60-seat restaurant, <strong>Brava</strong>, is scheduled to open in January 2027 with the new "1209 Stages" venue (<a href="https://sunny943.com/2026/10/06/cape-fear-regional-theater-announces-restaurant-bar-for-new-1209-stages-home-in-fayetteville/" target="_blank" rel="noopener">Sunny 94.3</a>). CFRT also paid $705,000 in 2022 for 1104 Hay St, nearby.</p>
+          </div>
+        </div>
+        <p class="note">Both projects should raise foot traffic, evening activity and visibility along this part of Hay St. Neither is open yet, and no closed sale since they were announced shows a measurable premium. The value gives credit for location (no downward location adjustments for Hay St comps) but adds no speculative premium.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2>Methodology and verification basis</h2>
+        <div class="card">
+          <ol style="margin:0 0 0 1.2rem;padding:0">
+            <li style="margin-bottom:.5rem"><strong>Sales comparison (primary):</strong> 8 closed sales of small office and house-style buildings on Hay St and nearby Haymount streets, 2022&ndash;2024, all within about 0.3 mile. Comps are compared in $ per SF of above-grade heated area, matching how the county measures them. The subject's finished lower level is handled as a separate adjustment.</li>
+            <li style="margin-bottom:.5rem"><strong>Income cross-check:</strong> a market-rent capitalization using current Haymount office asking rents.</li>
+            <li><strong>Reference only:</strong> the county value, the subject's 2019 sale, and distressed or non-comparable sales nearby.</li>
+          </ol>
+          <ul style="margin:.75rem 0 0 1.2rem;padding:0">
+            <li style="margin-bottom:.5rem"><strong>All comps were independently researched</strong> from Cumberland County's recorded deeds and market-area sale records. Sale prices were checked against deed excise stamps.</li>
+            <li>Adjustments are Grant-Murray Real Estate's professional judgment as prospective listing broker. This is a broker's opinion of value, not a certified USPAP appraisal.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="alt">
+      <div class="container">
+        <h2>Comparable sales &mdash; Haymount / Hay St</h2>
+        <div class="card table-wrap">
+          <table class="table comps-table sale-comps">
+            <tr><th>Comp</th><th>Sold</th><th>Price</th><th>Bldg SF</th><th>$/SF</th><th>Acres</th><th>Built</th><th>Zoning</th><th>Distance</th></tr>
+            <tr><td><strong>C1. 910 Hay St</strong><br/><span class="muted">House-style office</span></td><td>4/2023</td><td>$310,000</td><td>1,680</td><td>$184.52</td><td>0.16</td><td>1925</td><td>OI</td><td>Next door</td></tr>
+            <tr><td><strong>C2. 916 Hay St</strong><br/><span class="muted">House-style building</span></td><td>12/2023</td><td>$335,000</td><td>2,979</td><td>$112.45</td><td>0.42</td><td>1848 / eff. 1970</td><td>NC</td><td>0.05 mi</td></tr>
+            <tr><td><strong>C3. 1007 Arsenal Ave</strong><br/><span class="muted">House-style building</span></td><td>10/2024</td><td>$405,000</td><td>3,222</td><td>$125.70</td><td>0.34</td><td>1900 / eff. 1968</td><td>OI</td><td>0.16 mi</td></tr>
+            <tr><td><strong>C4. 1014 Hay St</strong><br/><span class="muted">Office building</span></td><td>12/2023</td><td>$650,000</td><td>4,312</td><td>$150.74</td><td>0.58</td><td>1965</td><td>OI</td><td>0.13 mi</td></tr>
+            <tr><td><strong>C5. 1019 Hay St</strong><br/><span class="muted">Office building (renovated)</span></td><td>8/2023</td><td>$900,000</td><td>4,408</td><td>$204.17</td><td>0.61</td><td>1900 / eff. 2000</td><td>OI</td><td>0.14 mi</td></tr>
+            <tr><td><strong>C6. 1214 Morganton Rd</strong><br/><span class="muted">Office building</span></td><td>11/2023</td><td>$450,000</td><td>2,189</td><td>$205.57</td><td>0.14</td><td>1994</td><td>NC</td><td>0.27 mi</td></tr>
+            <tr><td><strong>C7. 1008 Hay St</strong><br/><span class="muted">Two-story office</span></td><td>11/2022</td><td>$460,000</td><td>3,347</td><td>$137.44</td><td>0.33</td><td>1922 / eff. 1966</td><td>OI</td><td>0.09 mi</td></tr>
+            <tr><td><strong>C8. 119 Broadfoot Ave</strong><br/><span class="muted">House-style building</span></td><td>6/2023</td><td>$375,000</td><td>2,679</td><td>$139.98</td><td>0.41</td><td>1900 / eff. 1965</td><td>LC</td><td>0.26 mi</td></tr>
+            
+          </table>
+        </div>
+        <p class="note">Building SF is the county's above-grade heated area. All sales are arm's-length warranty or special warranty deeds, with prices matching excise stamps. Left out: 713 Hay St (2/2026, $372,000, foreclosure trustee's deed to the lender); 911 Hay St (1/2025, $600,000 for a 7,466 SF medical building, about $80/SF and much larger); 1104 Hay St (11/2022, $705,000 to CFRT, an institutional assemblage); and 1017 Arsenal Ave (5/2023, $300,000, a residential-use house). Sources: <a href="https://taxpwa.co.cumberland.nc.us/camapwa/SaleDetails.aspx?VCS=8042&amp;PARCELPK=79010" target="_blank" rel="noopener">Cumberland County market-area sales (VCS 8042)</a> and county deed records for each comp.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2>Adjustment matrix</h2>
+        <p class="lede" style="margin-bottom:var(--space-6)">Each comp is adjusted to the subject: a 2005-built, 2,140 SF above-grade office/residential building with a 1,280 SF finished lower level, a carport and a 0.27-acre lot on Hay St. Time is adjusted at +2% per year.</p>
+        <div class="card table-wrap">
+          <table class="table adj-table">
+            <tr><th>Comp property</th><th>Unadj. $/SF</th><th>Net Adj. %</th><th>What was adjusted</th><th>Adj. $/SF</th></tr>
+            <tr><td><strong>C1. 910 Hay St</strong></td><td>$184.52</td><td>+44%</td><td>Location: next door, same block (0%). Time: about 3.5 years ago (+7%). Age/condition: 1925 house versus the subject's 2005 construction (+20%). Size: smaller building, which sells for more per SF (&minus;3%). Site/parking: 0.16 ac versus 0.27 ac with carport (+5%). Finished lower level: none recorded; the subject has 1,280 SF (+15%). Use/layout: both house-style offices (0%).</td><td><strong>$265.71</strong></td></tr>
+            <tr><td><strong>C2. 916 Hay St</strong></td><td>$112.45</td><td>+36%</td><td>Location: same block (0%). Time: about 2.8 years ago (+6%). Age/condition: 1848 house, effective 1970 (+15%). Size: larger building (+5%). Site: larger 0.42-ac lot (&minus;5%). Finished lower level (+15%). Use: similar house-style building (0%).</td><td><strong>$152.94</strong></td></tr>
+            <tr><td><strong>C3. 1007 Arsenal Ave</strong></td><td>$125.70</td><td>+41%</td><td>Location: Arsenal Ave side street with less Hay St exposure (+5%). Time: about 2 years ago (+4%). Age/condition: 1900 house, effective 1968 (+15%). Size: larger (+5%). Site: slightly larger lot (&minus;3%). Finished lower level (+15%).</td><td><strong>$177.23</strong></td></tr>
+            <tr><td><strong>C4. 1014 Hay St</strong></td><td>$150.74</td><td>+36%</td><td>Location: same Hay St corridor (0%). Time: about 2.8 years ago (+6%). Age/condition: 1965 office, heavily depreciated (+20%). Size: about twice the subject's above-grade area (+10%). Site: 0.58 ac with more parking (&minus;10%). Finished lower level (+15%). Use: purpose-built office (&minus;5%).</td><td><strong>$205.01</strong></td></tr>
+            <tr><td><strong>C5. 1019 Hay St</strong></td><td>$204.17</td><td>+21%</td><td>Location: same corridor (0%). Time: about 3.2 years ago (+6%). Age/condition: renovated, effective 2000 (+5%). Size: about twice the subject's above-grade area (+10%). Site: 0.61 ac (&minus;10%). Finished lower level (+15%). Use: purpose-built office (&minus;5%).</td><td><strong>$247.05</strong></td></tr>
+            <tr><td><strong>C6. 1214 Morganton Rd</strong></td><td>$205.57</td><td>+26%</td><td>Location: Haymount crossroads with stronger retail exposure (&minus;5%). Time: about 3 years ago (+6%). Age/condition: 1994 construction (+10%). Size: similar (0%). Site: smaller 0.14-ac lot (+5%). Finished lower level (+15%). Use: purpose-built office (&minus;5%).</td><td><strong>$259.02</strong></td></tr>
+            <tr><td><strong>C7. 1008 Hay St</strong></td><td>$137.44</td><td>+40%</td><td>Location: same block segment (0%). Time: about 3.9 years ago (+8%). Age/condition: 1922 building, effective 1966 (+20%). Size: larger (+5%). Site: similar lot with rear parking (&minus;3%). Finished lower level (+15%). Use: two-story office with eight offices (&minus;5%).</td><td><strong>$192.41</strong></td></tr>
+            <tr><td><strong>C8. 119 Broadfoot Ave</strong></td><td>$139.98</td><td>+35%</td><td>Location: Broadfoot Ave, Haymount (0%). Time: about 3.3 years ago (+7%). Age/condition: 1900 house, effective 1965 (+15%). Size: somewhat larger (+3%). Site: larger lot (&minus;5%). Finished lower level (+15%). Use: house-style building (0%).</td><td><strong>$188.97</strong></td></tr>
+            
+          </table>
+        </div>
+        <p class="note">Adjusted range is $152.94&ndash;$265.71 per SF (mean $211.04, median $198.71). Weighted 25% to C1 (next door, similar size and type), 20% to C6 (similar size, newer), 15% to C5 (renovated) and 8% to each of the others, the indication is $228.62 per SF. Concluded rate: <strong>$230 per SF</strong> of above-grade area. The +15% lower-level adjustment credits the 1,280 SF finished basement at roughly 25% of the above-grade rate, because its height, light and grade access are unverified.</p>
+      </div>
+    </section>
+
+    <section class="alt">
+      <div class="container">
+        <h2>Income cross-check</h2>
+        <div class="card table-wrap">
+          <table class="table parcel-table">
+            <tr><th>Line item</th><th>Basis</th><th>Amount</th></tr>
+            <tr><td>Main and upper floors</td><td>2,140 SF &times; $17.00/SF gross</td><td>$36,380</td></tr>
+            <tr><td>Finished lower level</td><td>1,280 SF &times; $10.00/SF gross</td><td>$12,800</td></tr>
+            <tr><td>Potential gross income</td><td></td><td>$49,180</td></tr>
+            <tr><td>Vacancy and credit loss</td><td>8%</td><td>&minus;$3,934</td></tr>
+            <tr><td>Operating expenses</td><td>32% of effective income (taxes, insurance, utilities, repairs, management)</td><td>&minus;$14,479</td></tr>
+            <tr><td><strong>Net operating income</strong></td><td></td><td><strong>$30,767</strong></td></tr>
+            <tr><td>Capitalized value</td><td>6.50%&ndash;7.00% cap rate</td><td><strong>$440,000&ndash;$473,000</strong></td></tr>
+          </table>
+        </div>
+        <p class="note">Rent evidence: a 2,400 SF second-floor OI office suite at 1003 Hay St (built 1987) asks $16.00/SF (<a href="https://www.loopnet.com/Listing/1003-Hay-St-Fayetteville-NC/41420821/" target="_blank" rel="noopener">LoopNet</a>). New shell suites at 1304 Morganton Rd in Haymount ask $22.00/SF (<a href="https://www.loopnet.com/Listing/1304-Morganton-Rd-Fayetteville-NC/21121445/" target="_blank" rel="noopener">LoopNet</a>). These are asking rents, not signed leases. The investor value comes in a little below the sales comparison; small Haymount buildings usually sell to owner-users, who pay more than investors. Rates and expenses are broker estimates.</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2>Value analysis &amp; opinion of value</h2>
+        <div class="card">
+          <div class="table-wrap">
+            <table class="table parcel-table">
+              <tr><th>Approach</th><th>Indication</th><th>Weight</th></tr>
+              <tr><td>Sales comparison: 2,140 SF &times; $230/SF</td><td>$492,200</td><td>Primary</td></tr>
+              <tr><td>Income cross-check</td><td>$440,000&ndash;$473,000</td><td>Support</td></tr>
+              <tr><td>County 2026 value</td><td>$376,892</td><td>Reference only</td></tr>
+              <tr><td>2019 sale of subject</td><td>$245,000 (9/2019)</td><td>Reference only</td></tr>
+            </table>
+          </div>
+          <div class="stats">
+            <div class="stat stat-alert"><div class="stat-label">Opinion of value</div><div class="stat-value">$490,000</div></div>
+            <div class="stat"><div class="stat-label">Recommended list price</div><div class="stat-value">$519,000</div></div>
+            <div class="stat"><div class="stat-label">Indicated range</div><div class="stat-value">$450K&ndash;$535K</div></div>
+          </div>
+          <p class="note" style="margin-top:1.5rem">The range uses $210&ndash;$250 per SF of above-grade area. Grant-Murray recommends listing at <strong>$519,000</strong>, about 6% above the value. That leaves room to test buyer interest from the museum and theater projects and the building's flexibility for mixed use.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="alt">
+      <div class="container">
+        <h2>Counter-evidence &amp; upside</h2>
+        <div class="card">
+          <ul style="margin:0 0 0 1.2rem;padding:0">
+            <li style="margin-bottom:.5rem"><strong>What $600,000 would require.</strong> $600,000 equals about $280 per SF of above-grade area, which is higher than every adjusted comp (top: $265.71, next door). Even crediting the lower level at 50% of the above-grade rate only supports about $520,000. $600,000 would need a buyer who values the lower level as nearly full office space, or who pays a premium ahead of the museum opening. That is possible, but no closed sale supports it yet.</li>
+            <li style="margin-bottom:.5rem"><strong>Below the value:</strong> the subject sold for $245,000 in 9/2019, and the county value is $376,892. The most recent nearby sales were weak: 713 Hay St went back to the lender in a $372,000 foreclosure (2/2026, about $97/SF), and 911 Hay St sold for about $80/SF (1/2025).</li>
+            <li style="margin-bottom:.5rem"><strong>Residential build.</strong> The building is vinyl-sided, county-graded as average and laid out with 6 bedrooms and 5 baths. An office buyer may face conversion costs.</li>
+            <li style="margin-bottom:.5rem"><strong>Upside: newest building on the block.</strong> Built in 2005, it is decades newer than nearly every Hay St comp. Most buyers here would face older systems.</li>
+            <li style="margin-bottom:.5rem"><strong>Upside: flexibility.</strong> By-right upper-story or live/work residential use appeals to owner-users who want to live and work in the same building. A buyer who verifies the lower level as code-compliant, grade-accessible office space would pay toward the top of the range or above.</li>
+            <li><strong>Upside: timing.</strong> CFRT's restaurant opens in January 2027 and the history center in spring 2028. A sale closer to either opening may draw stronger interest.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <h2>Listing / commission terms</h2>
+        <div class="card">
+          <div class="terms-grid">
+            <div>
+              <h4>Sale listing</h4>
+              <p><strong>6% co-brokered</strong> &mdash; of the gross sale price when a cooperating broker procures the buyer, split under standard commercial co-brokerage practice.</p>
+              <p style="margin-top:.5rem"><strong>4% in-house</strong> &mdash; when Grant-Murray Real Estate, LLC procures the buyer directly.</p>
+            </div>
+            <div>
+              <h4>Offering approach</h4>
+              <p>Market at <strong>$519,000</strong> to owner-users (professional offices, medical and wellness practices, live/work buyers) and small investors. Feature the OI mixed-use flexibility and the nearby history center and theater. Before launch, document the finished lower level (height, egress, grade access and permits) and confirm the historic-overlay status.</p>
+            </div>
+          </div>
+          <p class="note">Listing broker: <strong>Patrick Murray, CCIM, SIOR</strong>, Grant-Murray Real Estate, LLC. Final listing terms, duration and marketing-cost provisions will be set out in a separate written listing agreement.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="alt">
+      <div class="container">
+        <h2>Limitations</h2>
+        <div class="card">
+          <ol style="margin:0 0 0 1.2rem;padding:0">
+            <li style="margin-bottom:.6rem"><strong>No interior inspection.</strong> Condition, layout and current use come from county records and public directories. Interior finish, systems and deferred maintenance were not observed.</li>
+            <li style="margin-bottom:.6rem"><strong>Lower level not verified.</strong> The county lists both a slab foundation and a 1,280 SF finished basement. Value would change if the lower level is not legally usable finished space, or if it is full-height, grade-accessible office space.</li>
+            <li style="margin-bottom:.6rem"><strong>Zoning.</strong> The by-right status of upper-story and live/work dwellings comes from the city's published UDO. A written zoning determination is recommended before marketing a specific mixed-use layout. The outcome of the 2026 OI amendment (File 26-0379) and the parcel's historic-overlay status were not confirmed.</li>
+            <li style="margin-bottom:.6rem"><strong>Comp data.</strong> Comp sizes, ages and prices come from Cumberland County records and deed stamps and were not confirmed with buyers or sellers. Interior condition at the time of sale is unknown.</li>
+            <li style="margin-bottom:.6rem"><strong>Rents and cap rates</strong> in the income cross-check are broker estimates based on asking rents.</li>
+            <li style="margin-bottom:.6rem">No title search, survey or environmental review was performed.</li>
+            <li>This is a broker's opinion of value for marketing purposes, prepared by Grant-Murray Real Estate, LLC. It is not a certified USPAP appraisal.</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container two-col">
+        <div class="card">
+          <h3>Prepared by</h3>
+          <p><strong>Patrick Murray, CCIM, SIOR</strong><br/>Principal / Broker in Charge<br/>Grant-Murray Real Estate, LLC</p>
+          <p style="margin-top:.75rem">150 N. McPherson Church Rd<br/>Fayetteville, NC 28303</p>
+          <p style="margin-top:.75rem">O: 910.829.1617<br/>patrick@grantmurrayre.com<br/><a href="https://www.grantmurrayre.com" target="_blank" rel="noopener">grantmurrayre.com</a></p>
+        </div>
+        <div class="card">
+          <h3>Prepared for</h3>
+          <p><strong>Gardeavant Properties LLC</strong><br/>Owner of record<br/>210 Woodside Ave<br/>Fayetteville, NC 28301</p>
+          <p class="disclaimer">This Broker Price Opinion (BPO) is prepared by Patrick Murray, CCIM, SIOR, of Grant-Murray Real Estate, LLC. It is not an appraisal and is not a certified valuation under USPAP. The conclusion uses the sales comparison approach on independently researched closed sales in the Haymount / Hay St market, cross-checked with a market-rent income approach and with (but not relying on) the county's assessed value. It is subject to verification of the building's finished area, condition, zoning status and changing market conditions.</p>
+        </div>
+      </div>
+    </section>
+</main>
+
+  <footer>
+    <div class="container footer-inner">
+      <img class="footer-logo" src="assets/gm-logo.svg" alt="Grant-Murray Real Estate" />
+      <div>
+        Broker Price Opinion &mdash; prepared 10/28/2026.<br/>
+        Prepared by Grant-Murray Real Estate | CCIM | SIOR<br/>
+        Live report: <a href="https://tpmurray13.github.io/bpo-908-hay-st/" style="color:#ffffff;text-decoration:underline" target="_blank" rel="noopener">tpmurray13.github.io/bpo-908-hay-st</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
